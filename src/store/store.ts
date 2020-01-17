@@ -1,7 +1,7 @@
 import { Action, configureStore } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
 
-import { rootReducer } from "./rootReducer";
+import rootReducer from "./rootReducer";
 import { increment } from "./counterSlice";
 import { addVideoSessions } from "./videoSessionsSlice";
 
