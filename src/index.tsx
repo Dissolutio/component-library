@@ -1,3 +1,3 @@
 import TestComponent from "./test-component/test-component";
-
-export { TestComponent };
+import { store, rootReducer, increment, addVideoSessions } from './store'
+export { TestComponent, store, rootReducer, increment, addVideoSessions };
