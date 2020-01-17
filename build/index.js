@@ -4993,7 +4993,7 @@ var connect = createConnect();
 
 setBatch(reactDom.unstable_batchedUpdates);
 
-var CounterContainer = function (BaseComponent) {
+var withConnectedCounter = function (BaseComponent) {
     var mapStateToProps = function (state) { return ({
         count: state.counter,
     }); };
@@ -5032,13 +5032,13 @@ var FCCounter = function (props) {
             "Increment by ",
             step)));
 };
-var CounterDisplay = CounterContainer(FCCounter);
+var CounterDisplay = withConnectedCounter(FCCounter);
 
-exports.CounterContainer = CounterContainer;
 exports.CounterDisplay = CounterDisplay;
 exports.TestComponent = TestComponent;
 exports.addVideoSessions = addVideoSessions;
 exports.increment = increment;
 exports.rootReducer = rootReducer;
 exports.store = store;
+exports.withConnectedCounter = withConnectedCounter;
 //# sourceMappingURL=index.js.map

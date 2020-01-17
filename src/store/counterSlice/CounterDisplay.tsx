@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CounterContainer from './CounterContainer';
+import withConnectedCounter from './withConnectedCounter';
 
 interface IFCCountProps {
     count: number
@@ -20,5 +20,5 @@ const FCCounter: React.FC<IFCCountProps> = props => {
         </div>
     )
 }
-const CounterDisplay = CounterContainer(FCCounter)
+const CounterDisplay = withConnectedCounter(FCCounter)
 export default CounterDisplay

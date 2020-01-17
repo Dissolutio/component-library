@@ -10,7 +10,7 @@ interface InjectedProps {
   count: number
   onIncrement: (step: number) => void
 }
-const CounterContainer = <BaseProps extends InjectedProps>(
+const withConnectedCounter = <BaseProps extends InjectedProps>(
   BaseComponent: React.ComponentType<BaseProps>
 ) => {
   const mapStateToProps = (state: RootState) => ({
@@ -58,4 +58,4 @@ const CounterContainer = <BaseProps extends InjectedProps>(
 
   return ConnectedHoc;
 };
-export default CounterContainer
+export default withConnectedCounter
