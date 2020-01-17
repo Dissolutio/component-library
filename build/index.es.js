@@ -2748,12 +2748,6 @@ var rootReducer = combineReducers({
 var store = configureStore({
     reducer: rootReducer
 });
-if (process.env.NODE_ENV === "development" && module.hot) {
-    module.hot.accept("./rootReducer", function () {
-        var newRootReducer = require("./rootReducer").default;
-        store.replaceReducer(newRootReducer);
-    });
-}
 
 export { TestComponent, addVideoSessions, increment, rootReducer, store };
 //# sourceMappingURL=index.es.js.map
