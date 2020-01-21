@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit'
+import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { AppThunk } from '.';
+import { getTreeBase } from './terraApi';
 import { ApiSeriesModel, ApiSessionsModel, ApiVideoModelBasic } from './terraApi/constants';
-import { getTreeBase } from './terraApi'
-import { AppThunk } from '.'
 
 export interface GallerySeriesModel extends ApiVideoModelBasic {
     children: number[]

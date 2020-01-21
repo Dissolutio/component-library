@@ -1,18 +1,20 @@
-import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit'
-import { AppThunk } from '.'
-import { VRPinData } from './terraApi/constants'
-import { fetchVRPin } from './terraApi'
+import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { AppThunk } from '.';
+import { fetchVRPin } from './terraApi';
+import { VRPinData } from './terraApi/constants';
+
 export interface VRPinState {
-    pin: string
-    exp: number
     error: string
+    exp: number
     loading: boolean
+    pin: string
 }
 const initialState: VRPinState = {
-    pin: '',
-    exp: 0,
     error: '',
-    loading: false
+    exp: 0,
+    loading: false,
+    pin: '',
 }
 const VRPinSlice = createSlice({
     name: 'vrPin',

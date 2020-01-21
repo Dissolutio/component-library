@@ -4257,57 +4257,6 @@ var transformVRPinData = function (data) {
 
 var _a;
 var initialState = {
-    pin: '',
-    exp: 0,
-    error: '',
-    loading: false
-};
-var VRPinSlice = createSlice({
-    name: 'vrPin',
-    initialState: initialState,
-    reducers: {
-        getVRPinStart: function (vrPin, action) {
-            vrPin.loading = true;
-            vrPin.error = '';
-        },
-        getVRPinSuccess: function (vrPin, action) {
-            vrPin.pin = action.payload.pin;
-            vrPin.exp = action.payload.exp;
-            vrPin.loading = false;
-            vrPin.error = '';
-        },
-        getVRPinFailure: function (vrPin, action) {
-            vrPin.loading = false;
-            vrPin.error = action.payload;
-        },
-    }
-});
-var getVRPinStart = (_a = VRPinSlice.actions, _a.getVRPinStart), getVRPinSuccess = _a.getVRPinSuccess, getVRPinFailure = _a.getVRPinFailure;
-// THUNKS
-var getVRPin = function (authToken) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
-    var PIN, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                dispatch(getVRPinStart());
-                return [4 /*yield*/, fetchVRPin(authToken)];
-            case 1:
-                PIN = _a.sent();
-                dispatch(getVRPinSuccess(PIN));
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _a.sent();
-                getVRPinFailure(error_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); }; };
-var vrPinReducer = VRPinSlice.reducer;
-
-var _a$1;
-var initialState$1 = {
     authToken: '',
     videoSeries: {},
     videoSessions: {},
@@ -4316,7 +4265,7 @@ var initialState$1 = {
 };
 var galleryDataSlice = createSlice({
     name: 'galleryData',
-    initialState: initialState$1,
+    initialState: initialState,
     reducers: {
         getInitalDataStart: function (galleryData, action) {
             galleryData.loadingInit = true;
@@ -4343,7 +4292,7 @@ var galleryDataSlice = createSlice({
         },
     }
 });
-var getInitalDataStart = (_a$1 = galleryDataSlice.actions, _a$1.getInitalDataStart), getInitalDataSuccess = _a$1.getInitalDataSuccess, getInitalDataFailure = _a$1.getInitalDataFailure, addVideoSessions = _a$1.addVideoSessions, addVideoSeries = _a$1.addVideoSeries;
+var getInitalDataStart = (_a = galleryDataSlice.actions, _a.getInitalDataStart), getInitalDataSuccess = _a.getInitalDataSuccess, getInitalDataFailure = _a.getInitalDataFailure, addVideoSessions = _a.addVideoSessions, addVideoSeries = _a.addVideoSeries;
 // THUNKS
 var getInitialData = function (authToken) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, videoSeries, videoSessions, error_1;
@@ -4369,9 +4318,60 @@ var getInitialData = function (authToken) { return function (dispatch) { return 
 }); }; };
 var galleryReducer = galleryDataSlice.reducer;
 
+var _a$1;
+var initialState$1 = {
+    error: '',
+    exp: 0,
+    loading: false,
+    pin: '',
+};
+var VRPinSlice = createSlice({
+    name: 'vrPin',
+    initialState: initialState$1,
+    reducers: {
+        getVRPinStart: function (vrPin, action) {
+            vrPin.loading = true;
+            vrPin.error = '';
+        },
+        getVRPinSuccess: function (vrPin, action) {
+            vrPin.pin = action.payload.pin;
+            vrPin.exp = action.payload.exp;
+            vrPin.loading = false;
+            vrPin.error = '';
+        },
+        getVRPinFailure: function (vrPin, action) {
+            vrPin.loading = false;
+            vrPin.error = action.payload;
+        },
+    }
+});
+var getVRPinStart = (_a$1 = VRPinSlice.actions, _a$1.getVRPinStart), getVRPinSuccess = _a$1.getVRPinSuccess, getVRPinFailure = _a$1.getVRPinFailure;
+// THUNKS
+var getVRPin = function (authToken) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+    var PIN, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                dispatch(getVRPinStart());
+                return [4 /*yield*/, fetchVRPin(authToken)];
+            case 1:
+                PIN = _a.sent();
+                dispatch(getVRPinSuccess(PIN));
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                getVRPinFailure(error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }; };
+var vrPinReducer = VRPinSlice.reducer;
+
 var rootReducer = combineReducers({
+    galleryData: galleryReducer,
     vrPin: vrPinReducer,
-    galleryData: galleryReducer
 });
 
 var store = configureStore({

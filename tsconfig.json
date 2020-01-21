@@ -3,6 +3,7 @@
     "outDir": "build",
     "module": "esnext",
     "target": "es5",
+    "declaration": true,
     "lib": [
       "es6",
       "dom",

@@ -1,8 +1,9 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import vrPinReducer from "./vrPinSlice";
-import galleryReducer from "./gallerySlice";
+import { combineReducers } from '@reduxjs/toolkit';
+
+import galleryReducer from './gallerySlice';
+import vrPinReducer from './vrPinSlice';
 
 export const rootReducer = combineReducers({
+  galleryData: galleryReducer,
   vrPin: vrPinReducer,
-  galleryData: galleryReducer
 });
