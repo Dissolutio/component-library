@@ -1,4 +1,4 @@
 import TestComponent from "./test-component/test-component";
-import { rootReducer, store, getInitialData, getVRPin } from './store'
+import { rootReducer, store, RootState, getInitialData, getVRPin } from './store'
 
-export { TestComponent, rootReducer, store, getInitialData, getVRPin };
+export { TestComponent, rootReducer, store, RootState, getInitialData, getVRPin };
